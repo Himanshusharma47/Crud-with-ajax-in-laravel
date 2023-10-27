@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +16,8 @@ use App\Http\Controllers\CrudController;
 Route::get('/', function () {
     return view('form');
 });
-//
-Route::get('/form-submit',[CrudController::class, 'form_submit'])->name('form.submit');
+Route::get('/form',[CrudController::class,'index']);
+Route::post('/form_submit',[CrudController::class,'form_submit']);
+Route::post('/delete_record', [CrudController::class,'deleteRecord']);
+Route::get('/get_record', [CrudController::class,'getRecord']);
+Route::post('/update_record', [CrudController::class,'updateRecord']);
